@@ -1,0 +1,71 @@
+@font-face {
+    font-family: 'Dogica';
+    src:url('./assets/dogicapixel.ttf');
+}
+
+.envelope-wrapper {
+    width: 100vw;
+    height: 100vh;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .envelope {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 60vh;
+        height: 80vh;
+        max-width: 100vw;
+        max-height: 80vh;
+
+        position: relative;
+        
+        &:before{
+            content: "";
+            display: block;
+            padding-top: 100%;
+        }
+
+        .envelope-image-wrapper {
+            width: 100%; height: 100%;
+            position: absolute;
+            top: 0; left: 0;
+            z-index: 10;
+
+            .envelope-image {
+                position: absolute;
+                top: 50%; left: 0;
+                transform: translateY(-50%);
+                width: 100%; height: auto;
+                opacity: 1;
+                transition: opacity 1s ease 0s, top 1s ease 1s;
+            }
+
+            .envelope-open-image {
+                position: absolute;
+                top: 50%; left: 0;
+                transform: translateY(-50%);
+                width: 100%; height: auto;
+                opacity: 0;
+                transition: opacity 1s ease 0s;
+            }
+
+        }
+    }
+
+    .seen {
+        .envelope-image {
+            top: calc(50% + 8.6em) !important;
+            opacity: 0 !important;
+            transition: opacity 1s ease 1s, top 1s ease 0s !important;
+        }
+
+        .envelope-open-image {
+            opacity: 1 !important;
+            transition: opacity 1s ease 1s !important;
+        }
+    }
+}
